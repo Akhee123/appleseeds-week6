@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+}
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+#grid {
+    display: grid;
+    height: 90vh;
+    background-color: lightblue;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+#utility-bar {
+    display: flex;
+    height: 10vh;
+    background-color: gray;
+}
+
+#tools {
+    display: flex;
+    flex-grow: 1;
+    border: 10px ridge;
+    justify-content: space-around;
+}
+
+#blocks {
+    display: flex;
+    flex-grow: 2;
+    border: 10px ridge;
+    justify-content: space-around;
+}
+
+#pickaxe {
+    width: 50%;
+    background-image: url(img/pickaxe.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#shovel {
+    width: 50%;
+    background-image: url(img/shovel.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#axe {
+    width: 50%;
+    background-image: url(img/axe.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#grass {
+    width: 50%;
+    background-image: url(img/grass.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#stone {
+    width: 50%;
+    background-image: url(img/stone.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#wood {
+    width: 50%;
+    background-image: url(img/wood.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#leaves {
+    width: 50%;
+    background-image: url(img/leaves.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.empty {
+    background-image: none;
+}
+
+.grass {
+    background-image: url(img/grass.webp);
+}
+
+.stone {
+    background-image: url(img/stone.webp);
+}
+
+.wood {
+    background-image: url(img/wood.webp);
+}
+
+.leaves {
+    background-image: url(img/leaves.webp);
+}
