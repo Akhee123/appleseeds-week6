@@ -19,17 +19,34 @@ const world = [
 ];
 
 const grid = document.getElementById('grid');
+const tool = document.getElementById('tools');
+const block = document.getElementById('blocks');
 
 const inventoryBlocks = {
     grass: 0,
     stone: 0,
     wood: 0,
     leaves: 0
-}
+};
 
 const inventoryTools = {
+    shovel: false,
+    axe: false,
+    pickaxe: false
+};
 
-}
+tool.addEventListener('click', function (event) {
+    const toolClicked = event.target.id;
+    console.log(toolClicked);
+});
+
+block.addEventListener('click', function () {
+    
+});
+
+grid.addEventListener('click',function(event) {
+    console.log(event);
+});
 
 // Generate World
 function createWorld(arr, grid) {
