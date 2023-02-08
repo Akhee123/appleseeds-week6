@@ -29,23 +29,93 @@ const inventoryBlocks = {
     leaves: 0
 };
 
-const inventoryTools = {
-    shovel: false,
-    axe: false,
-    pickaxe: false
-};
+let currentTool = '';
+let currentBlock = '';
 
 tool.addEventListener('click', function (event) {
     const toolClicked = event.target.id;
     console.log(toolClicked);
+    if (toolClicked === 'shovel') {
+        currentTool = 'shovel';
+    }
+    else if (toolClicked === 'axe') {
+        currentTool = 'axe';
+    }
+    else if (toolClicked === 'pickaxe') {
+        currentTool = 'pickaxe';
+    }
 });
 
-block.addEventListener('click', function () {
-    
+block.addEventListener('click', function (event) {
+    const blockClicked = event.target.id;
+    console.log(blockClicked);
+    if (blockClicked === 'grass') {
+        currentBlock = 'grass';
+    }
+    else if (blockClicked === 'stone') {
+        currentBlock = 'stone';
+    }
+    else if (blockClicked === 'wood') {
+        currentBlock = 'wood';
+    }
+    else if (blockClicked === 'leaves') {
+        currentBlock = 'leaves';
+    }
 });
 
-grid.addEventListener('click',function(event) {
+grid.addEventListener('click', function (event) {
     console.log(event);
+    let blockClicked = event.target;
+    if (blockClicked.className === 'grass') {
+        if (currentTool === 'shovel') {
+            blockClicked.className = 'empty';
+            inventoryBlocks.grass++;
+        }
+    }
+    else if (blockClicked.className === 'stone') {
+        if (currentTool === 'pickaxe') {
+            blockClicked.className = 'empty';
+            inventoryBlocks.stone++;
+        }
+    }
+    else if (blockClicked.className === 'wood') {
+        if (currentTool === 'axe') {
+            blockClicked.className = 'empty';
+            inventoryBlocks.wood++;
+        }
+    }
+    else if (blockClicked.className === 'leaves') {
+        if (currentTool === 'axe') {
+            blockClicked.className = 'empty';
+            inventoryBlocks.leaves++;
+        }
+    }
+    else if (blockClicked.className === 'empty') {
+        if (currentBlock === 'grass') {
+            if (inventoryBlocks.grass > 0) {
+                inventoryBlocks.grass--;
+                blockClicked.className = 'grass';
+            }
+        }
+        else if (currentBlock === 'stone') {
+            if (inventoryBlocks.stone > 0) {
+                inventoryBlocks.stone--;
+                blockClicked.className = 'stone';
+            }
+        }
+        else if (currentBlock === 'wood') {
+            if (inventoryBlocks.wood > 0) {
+                inventoryBlocks.wood--;
+                blockClicked.className = 'wood';
+            }
+        }
+        else if (currentBlock === 'leaves') {
+            if (inventoryBlocks.leaves > 0) {
+                inventoryBlocks.leaves--;
+                blockClicked.className = 'leaves';
+            }
+        }
+    }
 });
 
 // Generate World
